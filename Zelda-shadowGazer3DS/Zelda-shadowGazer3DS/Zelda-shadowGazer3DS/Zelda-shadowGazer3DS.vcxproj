@@ -103,8 +103,10 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Camera.h" />
     <ClInclude Include="source\Filepaths.h" />
     <ClInclude Include="source\Game.h" />
+    <ClInclude Include="source\Map.h" />
     <ClInclude Include="source\pp2d\pp2d\lodepng.h" />
     <ClInclude Include="source\pp2d\pp2d\pp2d.h" />
     <ClInclude Include="source\scene.h" />
@@ -115,8 +117,10 @@
     <ClInclude Include="source\TitleScreen.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Camera.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Map.cpp" />
     <ClCompile Include="source\pp2d\pp2d\lodepng.c" />
     <ClCompile Include="source\pp2d\pp2d\pp2d.c" />
     <ClCompile Include="source\SceneManager.cpp" />
