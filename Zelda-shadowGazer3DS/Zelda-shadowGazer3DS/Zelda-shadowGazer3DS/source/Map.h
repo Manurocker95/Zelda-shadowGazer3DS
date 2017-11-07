@@ -24,6 +24,14 @@ Copyright (C) 2017 Manuel Rodríguez Matesanz
 #include <3ds.h>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <memory>
+#include "pp2d/pp2d/pp2d.h"
+#include "Camera.h"
+#include "Settings.h"
+#include "Filepaths.h"
+#include "tmxlite/Map.hpp"
 
 using namespace std;
 
@@ -32,14 +40,18 @@ class Map
 
 private:
 
-	std::vector<u16> m_idsX;
-	std::vector<u16> m_idsY;
+	size_t m_texture;
+	bool m_mapLoaded;
+public:
+
+	u16 m_width, m_height, map_width, map_height;
+	tmx::Map * map;
 
 public:
 
 	Map();
-	Map(std::string path);
-
+	void Draw(Camera & camera);
+	bool LoadMap(std::string path);
 };
 
 #endif

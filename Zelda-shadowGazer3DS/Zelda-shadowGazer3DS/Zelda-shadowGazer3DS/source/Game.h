@@ -27,7 +27,8 @@ Copyright (C) 2017 Manuel Rodríguez Matesanz
 #include "SceneManager.h"
 #include "pp2d/pp2d/pp2d.h"
 #include <stdio.h>
-
+#include "Map.h"
+#include "Camera.h"
 
 class GameScreen : public Scene
 {
@@ -43,6 +44,8 @@ private:
 
 	float m_offset;				// Offset for 3D
 	u32 m_held;
+	Map * m_map;
+	Camera * m_camera;
 
 public:
 

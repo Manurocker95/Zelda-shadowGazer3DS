@@ -40,17 +40,15 @@ void GameScreen::Start()
 
 	// We initialize our game variables
 	m_offset = 0;
-
-
-
-
+	m_map = new Map();
+	m_camera = new Camera();
 }
 
 void GameScreen::Draw()
 {	
 	pp2d_begin_draw(GFX_TOP, GFX_LEFT);
 	pp2d_draw_texture_part(SceneManager::instance()->getTexture(), 0, 0, TOP_WIDTH, 0, TOP_WIDTH, HEIGHT);
-	pp2d_draw_text(15, 5, 0.6f, 0.6f, C_WHITE, "HELLO WORLD!!");
+	m_map->Draw(*m_camera);
 
 	// Bottom screen (We just show an image)
 	pp2d_draw_on(GFX_BOTTOM, GFX_LEFT);
@@ -60,32 +58,42 @@ void GameScreen::Draw()
 
 void GameScreen::Update()
 {
-	// Things that happens in your game... update the player or something
+	if (m_camera->getX() <= 0)
+		m_camera->setX(0);
+
+	if (m_camera->getY() <= 0)
+		m_camera->setY(0);
+
+	if (m_camera->getX() >= m_map->m_width-TOP_WIDTH)
+		m_camera->setX(m_map->m_width - TOP_WIDTH);
+
+	if (m_camera->getY() >= m_map->m_height - HEIGHT)
+		m_camera->setY(m_map->m_height - HEIGHT);
 }
 
 void GameScreen::CheckInputs()
 {
 	hidScanInput();
-
+	m_held = hidKeysHeld();
 	
-	if ((hidKeysDown() & KEY_UP))
+	if ((m_held & KEY_UP))
 	{
-		
+		m_camera->Move(0,-1);
 	}
 
-	if ((hidKeysDown() & KEY_DOWN))
+	if ((m_held & KEY_DOWN))
 	{
-	
+		m_camera->Move(0, 1);
 	}
 
-	if ((hidKeysDown() & KEY_RIGHT))
+	if ((m_held & KEY_RIGHT))
 	{
-
+		m_camera->Move(1, 0);
 	}
 
-	if ((hidKeysDown() & KEY_LEFT))
+	if ((m_held & KEY_LEFT))
 	{
-		
+		m_camera->Move(-1, 0);
 	}
 
 	// We Exit pressing Select

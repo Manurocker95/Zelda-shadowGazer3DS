@@ -32,6 +32,9 @@ private:
 	u16 m_y;
 	u16 m_width;
 	u16 m_height;
+	u16 m_minX;
+	u16 m_minY;
+
 
 public:
 
@@ -52,6 +55,14 @@ public:
 
 	void setWidth(u16 _width);
 	void setHeight(u16 _height);
+
+	u16 getMinX();
+	u16 getMinY();
+
+	void setMinX(u16 _x);
+	void setMinY(u16 _y);
+
+	void Move(u16 x, u16 y);
 };
 
 #endif

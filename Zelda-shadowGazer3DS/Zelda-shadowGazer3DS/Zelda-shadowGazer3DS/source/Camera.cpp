@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "Map.h"
 
 // * Constructor - Total = 25 (400/16)
 Camera::Camera()
@@ -53,6 +54,27 @@ void Camera::setY(u16 _y)
 	m_y = _y;
 }
 
+
+u16 Camera::getMinX()
+{
+	return m_minX;
+}
+
+u16 Camera::getMinY()
+{
+	return m_minY;
+}
+
+void Camera::setMinX(u16 _x)
+{
+	m_minX = _x;
+}
+
+void Camera::setMinY(u16 _y)
+{
+	m_minY = _y;
+}
+
 u16 Camera::getWidth()
 {
 	return m_width;
@@ -71,4 +93,10 @@ void Camera::setWidth(u16 _width)
 void Camera::setHeight(u16 _height)
 {
 	m_height = _height;
+}
+
+void Camera::Move(u16 addx, u16 addy)
+{
+	m_x += addx;
+	m_y += addy;
 }

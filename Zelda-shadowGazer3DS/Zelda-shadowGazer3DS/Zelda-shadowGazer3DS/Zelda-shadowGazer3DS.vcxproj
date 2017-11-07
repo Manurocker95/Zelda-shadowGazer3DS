@@ -128,6 +128,11 @@
     <ClCompile Include="source\SplashScreen.cpp" />
     <ClCompile Include="source\TitleScreen.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="romfs\resources\Maps\test.mapdata">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

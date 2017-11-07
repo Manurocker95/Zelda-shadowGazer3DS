@@ -31,8 +31,11 @@ Copyright (C) 2017 Manuel Rodríguez Matesanz
 #define SND_SFX_TAP "romfs:/resources/Sounds/SFX/tap.wav"
 
 /* Images */
-#define IMG_SPRITES "romfs:/resources/Art/images.png"
-#define TEXTURE_SPRITESHEET_ID 1
-#define TEXTURE_SPRITESHEET_ID2 2
+#define IMG_SPRITES "romfs:/resources/Art/Sprites/images.png"
+
+/* Maps */
+#define MAP_DATA "romfs:/resources/Maps/test.mapdata"
+
+
 
 #endif
